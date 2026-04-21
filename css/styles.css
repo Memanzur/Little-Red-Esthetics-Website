@@ -1986,16 +1986,19 @@ section {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .nav-brand img {
-  height: 36px;
-  width: auto;
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .navbar.scrolled .nav-brand img {
-  height: 32px;
+  height: 28px;
+  width: 28px;
 }
 
 /* ========================================
