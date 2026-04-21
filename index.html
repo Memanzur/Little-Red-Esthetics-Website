@@ -40,7 +40,10 @@
     "email": "little.red.esthetics@gmail.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "8822 S Redwood Road",
+      "addressLocality": "West Jordan",
       "addressRegion": "UT",
+      "postalCode": "84088",
       "addressCountry": "US"
     },
     "sameAs": [
@@ -49,12 +52,20 @@
       "https://www.tiktok.com/@littleredesthetics"
     ],
     "priceRange": "$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00"
-    }
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Thursday"],
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Wednesday", "Friday"],
+        "opens": "14:30",
+        "closes": "19:00"
+      }
+    ]
   }
   </script>
 </head>
@@ -72,7 +83,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="https://www.vagaro.com/littleredesthetics" target="_blank" rel="noopener" class="btn btn-primary">Book Now</a></li>
+        <li><a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="btn btn-primary">Book Now</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation">
         <span></span>
@@ -86,18 +97,17 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <p class="section-label">Utah's Trusted Nurse Injector</p>
+        <p class="section-label">West Jordan, Utah's Trusted Nurse Injector</p>
         <h1>Glow <span>Naturally,</span> Feel Confidently</h1>
         <p>Natural aesthetic treatments and injections tailored to your unique features. Because enhancing your beauty should feel as good as the results look.</p>
         <div class="hero-buttons">
-          <a href="https://www.vagaro.com/littleredesthetics" target="_blank" rel="noopener" class="btn btn-primary">Book a Consultation</a>
+          <a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="btn btn-primary">Book a Consultation</a>
           <a href="services.html" class="btn btn-outline">View Services</a>
         </div>
       </div>
       <div class="hero-image">
         <div class="hero-image-wrapper">
-          <!-- Replace with actual hero photo -->
-          <div class="hero-image-placeholder">Your Beauty, Elevated</div>
+          <img src="images/glow-section.png" alt="Little Red Esthetics - Natural aesthetic results by Celeste, nurse injector in West Jordan Utah">
         </div>
       </div>
     </div>
@@ -139,12 +149,12 @@
   <section class="about-preview">
     <div class="container">
       <div class="about-image fade-in">
-        <!-- Replace with actual photo -->
+        <img src="images/portfolio-treatment-02.jpg" alt="Celeste, nurse injector at Little Red Esthetics">
       </div>
       <div class="about-content">
         <p class="section-label fade-in">Meet Your Injector</p>
-        <h2 class="fade-in">Passionate About Helping You Feel Your Best</h2>
-        <p class="fade-in">As a licensed nurse injector, I combine medical expertise with an artistic eye to deliver results that enhance your natural beauty. Every treatment is personalized because no two faces are the same.</p>
+        <h2 class="fade-in">Hi, I'm Celeste</h2>
+        <p class="fade-in">I'm an independent nurse injector with 8 years as a Master Medical Esthetician and 3 years as an Aesthetic RN with international training. I specialize in the Russian lip technique and natural-looking results.</p>
         <p class="fade-in">My approach is simple: listen to your goals, educate you on your options, and create a treatment plan that makes you feel confident and beautiful.</p>
         <div class="about-credentials fade-in">
           <div class="credential">
@@ -152,12 +162,12 @@
             <span>Licensed RN</span>
           </div>
           <div class="credential">
-            <div class="credential-icon">&#x1F3AF;</div>
-            <span>Certified Injector</span>
+            <div class="credential-icon">&#x1F489;</div>
+            <span>8+ Years Experience</span>
           </div>
           <div class="credential">
             <div class="credential-icon">&#x2764;</div>
-            <span>Natural Results</span>
+            <span>Russian Lip Technique</span>
           </div>
         </div>
         <br>
@@ -222,36 +232,21 @@
 
       <div class="gallery-grid">
         <div class="gallery-item fade-in fade-in-delay-1">
-          <!-- Replace with actual before/after from @littleredesthetics Instagram -->
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">&#x1F4F8;</div>
-            <span>Before & After</span>
-            <small>Lip Enhancement</small>
-          </div>
+          <img src="images/portfolio-lips-01.jpg" alt="Lip enhancement before and after by Little Red Esthetics">
           <div class="gallery-item-overlay">
             <span class="gallery-item-label">Lip Enhancement</span>
           </div>
         </div>
 
         <div class="gallery-item fade-in fade-in-delay-2">
-          <!-- Replace with actual before/after from @littleredesthetics Instagram -->
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">&#x1F4F8;</div>
-            <span>Before & After</span>
-            <small>Botox</small>
-          </div>
+          <img src="images/portfolio-neuro-04.jpg" alt="Neuromodulator treatment results by Little Red Esthetics">
           <div class="gallery-item-overlay">
-            <span class="gallery-item-label">Botox</span>
+            <span class="gallery-item-label">Neuromodulators</span>
           </div>
         </div>
 
         <div class="gallery-item fade-in fade-in-delay-3">
-          <!-- Replace with actual before/after from @littleredesthetics Instagram -->
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">&#x1F4F8;</div>
-            <span>Before & After</span>
-            <small>Dermal Filler</small>
-          </div>
+          <img src="images/portfolio-result-03.jpg" alt="Dermal filler results by Little Red Esthetics">
           <div class="gallery-item-overlay">
             <span class="gallery-item-label">Dermal Filler</span>
           </div>
@@ -268,7 +263,7 @@
     <div class="container">
       <h2 class="fade-in">Ready to Glow?</h2>
       <p class="fade-in">Book your consultation today and take the first step toward feeling your most confident self.</p>
-      <a href="https://www.vagaro.com/littleredesthetics" target="_blank" rel="noopener" class="btn btn-primary fade-in">Book Your Appointment</a>
+      <a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="btn btn-primary fade-in">Book Your Appointment</a>
     </div>
   </section>
 
@@ -315,7 +310,7 @@
           </div>
           <div class="footer-contact-item">
             <span>&#x1F4CD;</span>
-            <span>Utah</span>
+            <span>8822 S Redwood Rd, West Jordan, UT 84088</span>
           </div>
         </div>
       </div>
