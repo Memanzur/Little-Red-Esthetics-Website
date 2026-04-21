@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initFAQ();
   initFloatingCTA();
+  initSkinMap();
 });
 
 /* --- Navbar Scroll --- */
@@ -126,6 +127,112 @@ function initFAQ() {
         item.classList.add('active');
       }
     });
+  });
+}
+
+/* --- Interactive Skin Map --- */
+function initSkinMap() {
+  const hotspots = document.querySelectorAll('.face-hotspot');
+  const tooltip = document.getElementById('faceTooltip');
+  if (!hotspots.length || !tooltip) return;
+
+  const zoneData = {
+    forehead: {
+      title: 'Forehead',
+      concerns: 'Fine lines, sun damage, uneven texture, horizontal wrinkles',
+      treatment: 'Botox + Chemical Peel'
+    },
+    eyes: {
+      title: 'Eye Area',
+      concerns: "Crow's feet, dark circles, puffiness, fine lines",
+      treatment: 'Botox + Eye Cream Rx'
+    },
+    'eyes-r': {
+      title: 'Eye Area',
+      concerns: "Crow's feet, dark circles, puffiness, fine lines",
+      treatment: 'Botox + Eye Cream Rx'
+    },
+    tzone: {
+      title: 'T-Zone',
+      concerns: 'Enlarged pores, blackheads, excess oil, congestion',
+      treatment: 'Deep Cleanse + GlyMed+'
+    },
+    cheeks: {
+      title: 'Cheeks',
+      concerns: 'Volume loss, rosacea, acne scarring, pigmentation',
+      treatment: 'Filler + Skin Treatment'
+    },
+    'cheeks-r': {
+      title: 'Cheeks',
+      concerns: 'Volume loss, rosacea, acne scarring, pigmentation',
+      treatment: 'Filler + Skin Treatment'
+    },
+    lips: {
+      title: 'Lips & Mouth',
+      concerns: 'Perioral lines, volume loss, asymmetry, dryness',
+      treatment: 'Lip Filler + Lip Flip'
+    },
+    jawline: {
+      title: 'Jawline & Chin',
+      concerns: 'Hormonal acne, sagging, loss of definition',
+      treatment: 'Jawline Filler + Skin Rx'
+    }
+  };
+
+  let activeHotspot = null;
+
+  hotspots.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const zone = btn.dataset.zone;
+      const data = zoneData[zone];
+      if (!data) return;
+
+      if (activeHotspot === btn) {
+        closeTooltip();
+        return;
+      }
+
+      hotspots.forEach(h => h.classList.remove('active'));
+      btn.classList.add('active');
+      activeHotspot = btn;
+
+      tooltip.querySelector('.face-tooltip-title').textContent = data.title;
+      tooltip.querySelector('.face-tooltip-concerns').textContent = data.concerns;
+      tooltip.querySelector('.face-tooltip-treatment').textContent = data.treatment;
+
+      const map = btn.closest('.face-map');
+      const mapRect = map.getBoundingClientRect();
+      const btnRect = btn.getBoundingClientRect();
+      const btnCenterX = btnRect.left + btnRect.width / 2 - mapRect.left;
+      const btnCenterY = btnRect.top + btnRect.height / 2 - mapRect.top;
+
+      const tipW = 220;
+      let left = btnCenterX + 20;
+      let top = btnCenterY - 30;
+
+      if (left + tipW > mapRect.width) {
+        left = btnCenterX - tipW - 20;
+      }
+      if (top < 0) top = 10;
+      if (top + 120 > mapRect.height) top = mapRect.height - 130;
+
+      tooltip.style.left = left + 'px';
+      tooltip.style.top = top + 'px';
+      tooltip.classList.add('visible');
+    });
+  });
+
+  function closeTooltip() {
+    tooltip.classList.remove('visible');
+    hotspots.forEach(h => h.classList.remove('active'));
+    activeHotspot = null;
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.face-map')) {
+      closeTooltip();
+    }
   });
 }
 
