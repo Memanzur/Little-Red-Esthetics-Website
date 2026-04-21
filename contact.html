@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -21,12 +22,14 @@
   <!-- Navigation -->
   <nav class="navbar scrolled">
     <div class="container">
-      <a href="index.html" class="nav-brand">Little Red Esthetics</a>
+      <a href="index.html" class="nav-brand"><img src="images/logo.svg" alt="Little Red Esthetics">Little Red Esthetics</a>
       <div class="nav-overlay"></div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="quiz.html">Skin Quiz</a></li>
+        <li><a href="shop.html">Shop</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
@@ -103,7 +106,7 @@
         <h3>Send a Message</h3>
         <p>Fill out the form below and I'll get back to you within 24 hours.</p>
 
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="contact-form" action="mailto:little.red.esthetics@gmail.com" method="POST" enctype="text/plain">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -181,16 +184,18 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="quiz.html">Skin Quiz</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <li><a href="about.html">About</a></li>
           </ul>
         </div>
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html">Botox & Dysport</a></li>
+            <li><a href="services.html">Botox & Neurotoxins</a></li>
             <li><a href="services.html">Dermal Fillers</a></li>
             <li><a href="services.html">Lip Enhancement</a></li>
-            <li><a href="services.html">Skin Treatments</a></li>
+            <li><a href="services.html">Free Consultation</a></li>
           </ul>
         </div>
         <div>
@@ -215,6 +220,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Book CTA -->
+  <a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="floating-cta">
+    <span class="cta-sparkle">&#10022;</span> Book Now
+  </a>
 
   <script src="js/main.js"></script>
 </body>

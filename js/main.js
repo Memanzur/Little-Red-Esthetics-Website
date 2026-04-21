@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initScrollAnimations();
   initFAQ();
+  initFloatingCTA();
 });
 
 /* --- Navbar Scroll --- */
@@ -64,7 +65,7 @@ function initMobileNav() {
 
 /* --- Scroll Animations --- */
 function initScrollAnimations() {
-  const elements = document.querySelectorAll('.fade-in');
+  const elements = document.querySelectorAll('.fade-in, .fade-in-scale, .slide-in-left, .slide-in-right');
   if (!elements.length) return;
 
   const observer = new IntersectionObserver(
@@ -80,6 +81,31 @@ function initScrollAnimations() {
   );
 
   elements.forEach(el => observer.observe(el));
+}
+
+/* --- Floating CTA visibility --- */
+function initFloatingCTA() {
+  const cta = document.querySelector('.floating-cta');
+  if (!cta) return;
+
+  const footer = document.querySelector('.footer');
+  if (!footer) return;
+
+  const onScroll = () => {
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (footerTop < windowHeight) {
+      cta.style.opacity = '0';
+      cta.style.pointerEvents = 'none';
+    } else {
+      cta.style.opacity = '1';
+      cta.style.pointerEvents = 'auto';
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
 /* --- FAQ Accordion --- */

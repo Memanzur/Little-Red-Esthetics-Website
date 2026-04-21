@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Skin Quiz | Little Red Esthetics</title>
+  <meta name="description" content="Take our free skin quiz to discover your ideal aesthetic treatments and skincare routine. Personalized recommendations from a licensed nurse injector.">
+  <meta name="keywords" content="skin quiz, skincare quiz, aesthetic treatment quiz, what filler do I need, skincare routine quiz Utah">
+
+  <meta property="og:title" content="Free Skin Quiz | Little Red Esthetics">
+  <meta property="og:description" content="Discover your perfect skincare routine and treatments. Take our free 2-minute quiz.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled">
+    <div class="container">
+      <a href="index.html" class="nav-brand"><img src="images/logo.svg" alt="Little Red Esthetics">Little Red Esthetics</a>
+      <div class="nav-overlay"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="quiz.html" class="active">Skin Quiz</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="btn btn-primary">Book Now</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label">Discover Your Glow</p>
+      <h1>Free Skin Quiz</h1>
+      <p>Answer a few quick questions and get personalized treatment and skincare recommendations tailored just for you.</p>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="quiz-section">
+    <div class="container">
+      <div class="quiz-container" id="quizContainer">
+
+        <!-- Progress -->
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="progressFill" style="width: 20%"></div>
+          </div>
+          <div class="quiz-progress-text" id="progressText">1 of 5</div>
+        </div>
+
+        <!-- Questions will be rendered by JS -->
+        <div id="quizContent"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="fade-in">Ready for Your Custom Plan?</h2>
+      <p class="fade-in">Book a free consultation and let's create a personalized treatment plan based on your quiz results.</p>
+      <a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="btn btn-primary fade-in">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Little Red Esthetics</div>
+          <p class="footer-desc">Natural aesthetic treatments and injections tailored to your unique features and beauty. Serving Utah with expert care.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/littleredesthetics" target="_blank" rel="noopener" aria-label="Instagram"><svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C16.67.014 16.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/littleredesthetics" target="_blank" rel="noopener" aria-label="Facebook"><svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.tiktok.com/@littleredesthetics" target="_blank" rel="noopener" aria-label="TikTok"><svg class="social-icon-svg" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46v-7.15a8.16 8.16 0 005.58 2.2v-3.45a4.85 4.85 0 01-3.77-1.8v-.01l2.77-2.76z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="quiz.html">Skin Quiz</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Botox & Neurotoxins</a></li>
+            <li><a href="services.html">Dermal Fillers</a></li>
+            <li><a href="services.html">Lip Enhancement</a></li>
+            <li><a href="services.html">Free Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <a href="tel:8016498389">(801) 649-8389</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 5L2 7"/></svg></span>
+            <a href="mailto:little.red.esthetics@gmail.com">little.red.esthetics@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span>8822 S Redwood Rd, West Jordan, UT 84088</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Little Red Esthetics. All rights reserved.</p>
+        <p><a href="faq.html">FAQ</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Book CTA -->
+  <a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="floating-cta">
+    <span class="cta-sparkle">&#10022;</span> Book Now
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    const quizData = [
+      {
+        question: "What's your primary skin type?",
+        subtitle: "Think about how your skin typically feels by midday.",
+        options: [
+          { icon: "💧", text: "Dry - feels tight, sometimes flaky", value: "dry" },
+          { icon: "✨", text: "Oily - shiny by noon, enlarged pores", value: "oily" },
+          { icon: "🌗", text: "Combination - oily T-zone, dry cheeks", value: "combo" },
+          { icon: "🌸", text: "Sensitive - easily irritated, redness-prone", value: "sensitive" },
+          { icon: "☁️", text: "Normal - balanced and generally happy", value: "normal" }
+        ]
+      },
+      {
+        question: "What's your #1 skin concern right now?",
+        subtitle: "Pick the one that bothers you most.",
+        options: [
+          { icon: "〰️", text: "Fine lines & wrinkles", value: "aging" },
+          { icon: "🔴", text: "Acne or breakouts", value: "acne" },
+          { icon: "🎨", text: "Uneven skin tone or dark spots", value: "tone" },
+          { icon: "😴", text: "Dullness & lack of glow", value: "dull" },
+          { icon: "📐", text: "Volume loss or facial structure", value: "volume" }
+        ]
+      },
+      {
+        question: "What age range are you in?",
+        subtitle: "This helps us tailor product and treatment recommendations.",
+        options: [
+          { icon: "🌱", text: "18-25", value: "18-25" },
+          { icon: "🌿", text: "26-35", value: "26-35" },
+          { icon: "🌳", text: "36-45", value: "36-45" },
+          { icon: "🍂", text: "46-55", value: "46-55" },
+          { icon: "🌺", text: "55+", value: "55+" }
+        ]
+      },
+      {
+        question: "How would you describe your daily skincare routine?",
+        subtitle: "Be honest, no judgment here!",
+        options: [
+          { icon: "🚿", text: "Minimal - cleanser and moisturizer, maybe", value: "minimal" },
+          { icon: "📋", text: "Basic - cleanser, moisturizer, sunscreen", value: "basic" },
+          { icon: "🧴", text: "Dedicated - multi-step with serums & SPF", value: "dedicated" },
+          { icon: "🔬", text: "Advanced - actives, treatments, the whole thing", value: "advanced" }
+        ]
+      },
+      {
+        question: "Have you had aesthetic treatments before?",
+        subtitle: "This helps us gauge your comfort level.",
+        options: [
+          { icon: "🆕", text: "Never - this would be my first time", value: "never" },
+          { icon: "🤔", text: "Curious - I've been researching", value: "curious" },
+          { icon: "✅", text: "Yes - I've had Botox or fillers before", value: "experienced" },
+          { icon: "💫", text: "Regular - I'm a seasoned pro", value: "regular" }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let answers = [];
+
+    function renderQuestion(index) {
+      const q = quizData[index];
+      const progress = ((index + 1) / quizData.length) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+      document.getElementById('progressText').textContent = (index + 1) + ' of ' + quizData.length;
+
+      let html = '<div class="quiz-question">';
+      html += '<h2>' + q.question + '</h2>';
+      html += '<p>' + q.subtitle + '</p>';
+      html += '</div>';
+      html += '<div class="quiz-options">';
+      q.options.forEach((opt, i) => {
+        const selected = answers[index] === opt.value ? ' selected' : '';
+        html += '<button class="quiz-option' + selected + '" onclick="selectOption(' + index + ', \'' + opt.value + '\')">';
+        html += '<span class="quiz-option-icon">' + opt.icon + '</span>';
+        html += '<span>' + opt.text + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+      html += '<div class="quiz-nav">';
+      if (index > 0) {
+        html += '<button class="btn btn-outline" onclick="prevQuestion()">Back</button>';
+      } else {
+        html += '<div></div>';
+      }
+      if (index < quizData.length - 1) {
+        html += '<button class="btn btn-primary" onclick="nextQuestion()" ' + (answers[index] ? '' : 'disabled style="opacity:0.5;cursor:not-allowed"') + '>Next</button>';
+      } else {
+        html += '<button class="btn btn-primary" onclick="showResults()" ' + (answers[index] ? '' : 'disabled style="opacity:0.5;cursor:not-allowed"') + '>See My Results</button>';
+      }
+      html += '</div>';
+
+      document.getElementById('quizContent').innerHTML = html;
+    }
+
+    function selectOption(qIndex, value) {
+      answers[qIndex] = value;
+      renderQuestion(qIndex);
+      if (qIndex < quizData.length - 1) {
+        setTimeout(() => nextQuestion(), 400);
+      }
+    }
+
+    function nextQuestion() {
+      if (!answers[currentQuestion]) return;
+      currentQuestion++;
+      renderQuestion(currentQuestion);
+      window.scrollTo({ top: document.querySelector('.quiz-section').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function prevQuestion() {
+      currentQuestion--;
+      renderQuestion(currentQuestion);
+    }
+
+    function showResults() {
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressText').textContent = 'Complete!';
+
+      const concern = answers[1];
+      const age = answers[2];
+      const skin = answers[0];
+
+      let treatmentRec = '';
+      let productRecs = [];
+      let skinAdvice = '';
+
+      // Treatment recommendations based on concern
+      if (concern === 'aging') {
+        treatmentRec = '<div class="quiz-result-card"><h3>Recommended Treatment: Botox</h3><p>Based on your concerns with fine lines and wrinkles, neurotoxin treatments like Botox ($12/unit) or Jeuveau ($10/unit) would be ideal. These smooth existing lines and prevent new ones from forming. Results typically last 3-4 months.</p></div>';
+        if (age === '36-45' || age === '46-55' || age === '55+') {
+          treatmentRec += '<div class="quiz-result-card"><h3>Also Consider: Dermal Fillers</h3><p>As we age, we lose facial volume. Strategic filler placement in the cheeks (from $650) or under-eyes (from $600) can restore youthful fullness and complement your Botox results beautifully.</p></div>';
+        }
+      } else if (concern === 'volume') {
+        treatmentRec = '<div class="quiz-result-card"><h3>Recommended Treatment: Dermal Fillers</h3><p>Fillers are perfect for restoring volume and enhancing facial structure. Whether it\'s cheek contouring (from $650), jawline definition (from $650), or chin projection (from $600), we can create beautiful, natural-looking results.</p></div>';
+      } else if (concern === 'acne') {
+        treatmentRec = '<div class="quiz-result-card"><h3>Recommended: Skincare Consultation</h3><p>For active acne, a proper medical-grade skincare routine is the foundation. Book a free consultation and we\'ll create a custom GlyMed+ protocol to clear your skin. Once your skin is calm, we can discuss treatments to address any scarring.</p></div>';
+      } else if (concern === 'tone') {
+        treatmentRec = '<div class="quiz-result-card"><h3>Recommended: Brightening Protocol</h3><p>Uneven skin tone responds beautifully to medical-grade skincare with active brightening ingredients. A GlyMed+ regimen featuring vitamin C, retinoids, and professional peels can transform your complexion. Book a free consultation to get started.</p></div>';
+      } else if (concern === 'dull') {
+        treatmentRec = '<div class="quiz-result-card"><h3>Recommended Treatment: Lip Enhancement + Skincare</h3><p>Sometimes all you need is a little glow-up! A subtle lip enhancement (from $550) can brighten your whole face, and a proper skincare routine will give you that lit-from-within radiance. Start with a free consultation.</p></div>';
+      }
+
+      // Product recommendations based on skin type
+      if (skin === 'dry') {
+        productRecs = [
+          { name: 'GlyMed+ CBD Skin Mist', desc: 'Hydrating facial mist with CBD to calm and moisturize throughout the day.' },
+          { name: 'GlyMed+ Intense Peptide Cream', desc: 'Rich, nourishing moisturizer that rebuilds the moisture barrier.' },
+          { name: 'GlyMed+ Hyaluronic Acid Serum', desc: 'Deep hydration that plumps and smooths dry, dehydrated skin.' }
+        ];
+      } else if (skin === 'oily') {
+        productRecs = [
+          { name: 'GlyMed+ Sal-X Purifying Cleanser', desc: 'Gentle salicylic acid cleanser that controls oil without stripping.' },
+          { name: 'GlyMed+ Oil-Free Moisturizer', desc: 'Lightweight hydration that won\'t clog pores or add shine.' },
+          { name: 'GlyMed+ Brilliant Tone', desc: 'Brightening treatment that refines pores and evens skin tone.' }
+        ];
+      } else if (skin === 'combo') {
+        productRecs = [
+          { name: 'GlyMed+ Gentle Facial Wash', desc: 'Balanced cleanser that respects both oily and dry zones.' },
+          { name: 'GlyMed+ Brilliant Tone', desc: 'Evens out skin tone and texture for a unified complexion.' },
+          { name: 'GlyMed+ CBD Skin Mist', desc: 'Refreshing mist that balances and soothes throughout the day.' }
+        ];
+      } else if (skin === 'sensitive') {
+        productRecs = [
+          { name: 'GlyMed+ CBD Skin Mist', desc: 'Calming, anti-inflammatory mist perfect for reactive skin.' },
+          { name: 'GlyMed+ Comfort Cream', desc: 'Soothing moisturizer that strengthens the skin barrier.' },
+          { name: 'GlyMed+ CBD Regenerative Eye Cream', desc: 'Gentle eye treatment that reduces puffiness and dark circles.' }
+        ];
+      } else {
+        productRecs = [
+          { name: 'GlyMed+ Brilliant Tone', desc: 'Maintain your great skin with this brightening, anti-aging serum.' },
+          { name: 'GlyMed+ CBD Skin Mist', desc: 'Daily hydration boost that keeps skin balanced and fresh.' },
+          { name: 'GlyMed+ Peptide Eye Cream', desc: 'Preventative eye care to keep fine lines at bay.' }
+        ];
+      }
+
+      let html = '<div class="quiz-results">';
+      html += '<h2 class="gradient-text">Your Personalized Results</h2>';
+      html += '<p>Based on your answers, here\'s what we recommend for your skin journey:</p>';
+      html += treatmentRec;
+
+      html += '<h3 style="margin-top:2.5rem; margin-bottom:1rem;">Your Recommended Skincare</h3>';
+      html += '<div class="quiz-result-products">';
+      productRecs.forEach(p => {
+        html += '<div class="quiz-product-card">';
+        html += '<h4>' + p.name + '</h4>';
+        html += '<p>' + p.desc + '</p>';
+        html += '<a href="shop.html" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.7rem;">Shop Now</a>';
+        html += '</div>';
+      });
+      html += '</div>';
+
+      html += '<div style="margin-top:3rem;">';
+      html += '<p style="margin:0 auto 1.5rem; font-style:italic; color:var(--charcoal-light);">These are general recommendations. For a personalized treatment plan, book your free consultation with Celeste.</p>';
+      html += '<a href="https://mysite.vagaro.com/littleredesthetics/services" target="_blank" rel="noopener" class="btn btn-primary">Book Free Consultation</a>';
+      html += '</div>';
+      html += '</div>';
+
+      document.getElementById('quizContent').innerHTML = html;
+      window.scrollTo({ top: document.querySelector('.quiz-section').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    // Initialize quiz
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestion(0);
+    });
+  </script>
+</body>
+</html>
