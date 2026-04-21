@@ -429,6 +429,27 @@ section {
   75% { border-radius: 50% 40% 50% 60% / 60% 50% 40% 50%; }
 }
 
+.hero-image-caption {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hero-image-caption strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.hero-image-caption span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--burgundy-muted);
+}
+
 .hero-image-placeholder {
   width: 100%;
   height: 100%;
@@ -1986,19 +2007,22 @@ section {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0;
 }
 
 .nav-brand img {
-  height: 32px;
-  width: 32px;
+  height: 48px;
+  width: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .navbar.scrolled .nav-brand img {
-  height: 28px;
-  width: 28px;
+  height: 40px;
+}
+
+.nav-brand .brand-text {
+  display: none;
 }
 
 /* ========================================
