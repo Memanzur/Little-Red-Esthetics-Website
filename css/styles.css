@@ -1493,3 +1493,159 @@ section {
 .fade-in-delay-1 { transition-delay: 0.1s; }
 .fade-in-delay-2 { transition-delay: 0.2s; }
 .fade-in-delay-3 { transition-delay: 0.3s; }
+
+/* ========================================
+   SVG ICONS
+   ======================================== */
+.icon-svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--burgundy);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.service-icon .icon-svg {
+  width: 28px;
+  height: 28px;
+}
+
+.credential-icon .icon-svg,
+.credential-item-icon .icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-detail-icon .icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.footer-contact-icon {
+  flex-shrink: 0;
+}
+
+.footer-contact-icon .icon-svg {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Social SVG Icons --- */
+.social-icon-svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.footer-social .social-icon-svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact-social .social-icon-svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ========================================
+   GOLD ACCENT DIVIDERS
+   ======================================== */
+.section-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin-top: 0.75rem;
+}
+
+.text-center .section-label::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonials .section-label::after {
+  background: var(--gold-light);
+}
+
+/* --- Gold accent line on nav brand --- */
+.nav-brand {
+  position: relative;
+}
+
+.nav-brand::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+}
+
+/* --- CTA gold accent --- */
+.cta-section {
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* --- Service card gold top border on hover --- */
+.service-card:hover {
+  border-color: var(--gold-light);
+}
+
+/* --- Service item gold left border --- */
+.service-item {
+  border-left: 3px solid transparent;
+}
+
+.service-item:hover {
+  border-left-color: var(--gold);
+}
+
+/* --- Credential item gold left accent --- */
+.credential-item {
+  border-left: 3px solid var(--gold-light);
+}
+
+/* --- FAQ gold accent on active --- */
+.faq-item.active {
+  border-left: 3px solid var(--gold);
+}
+
+/* --- Footer gold divider above bottom --- */
+.footer-bottom {
+  border-top: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+/* --- Gallery item gold border on hover --- */
+.gallery-full-item:hover {
+  border: 1px solid var(--gold-light);
+}
+
+/* --- Page hero gold underline on h1 --- */
+.page-hero h1::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
