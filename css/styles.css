@@ -1505,14 +1505,6 @@ section {
     text-align: center;
   }
 
-  .hero-stats {
-    justify-content: center;
-  }
-
-  .hero-badge {
-    justify-content: center;
-  }
-
   .hero-content {
     order: 1;
   }
@@ -1526,7 +1518,7 @@ section {
   }
 
   .hero-image-wrapper {
-    max-width: 250px;
+    max-width: 220px;
     aspect-ratio: 1;
     animation: morph 10s ease-in-out infinite;
   }
@@ -1536,10 +1528,6 @@ section {
   }
 
   .hero-trust {
-    justify-content: center;
-  }
-
-  .hero-badge {
     justify-content: center;
   }
 
@@ -1649,26 +1637,157 @@ section {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 
   .hero {
-    min-height: 90vh;
+    min-height: auto;
+    padding: 5.5rem 0 2.5rem;
+  }
+
+  .hero .container {
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-image-wrapper {
+    max-width: 180px;
+  }
+
+  .hero-image-caption strong {
+    font-size: 0.95rem;
+  }
+
+  .hero-image-caption span {
+    font-size: 0.6rem;
   }
 
   .hero-buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
-  .btn {
+  .hero-buttons .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.2rem;
+    font-size: 0.75rem;
+  }
+
+  .nav-brand img {
+    height: 38px;
+  }
+
+  .navbar.scrolled .nav-brand img {
+    height: 34px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .marquee-track span {
+    font-size: 0.65rem;
+    padding: 0 1rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
   }
 
   .testimonial-grid,
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about-preview .container {
+    gap: 2rem;
+  }
+
+  .about-image {
+    aspect-ratio: 1;
+  }
+
+  .about-credentials {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .google-rating {
+    padding: 0.5rem 1rem;
+    gap: 0.4rem;
+  }
+
+  .google-rating-text {
+    font-size: 0.75rem;
+  }
+
+  .floating-cta {
+    padding: 0.55rem 1rem;
+    font-size: 0.65rem;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    letter-spacing: 1px;
+  }
+
+  .sparkle {
+    display: none;
+  }
+
+  .skin-mapping-features li {
+    font-size: 0.85rem;
+  }
+
+  .face-map {
+    max-width: 220px;
+  }
+
+  .face-tooltip {
+    width: 160px;
+    padding: 0.8rem;
+  }
+
+  .footer-brand {
+    font-size: 1.2rem;
+  }
+
+  .footer-desc {
+    font-size: 0.8rem;
   }
 }
 
