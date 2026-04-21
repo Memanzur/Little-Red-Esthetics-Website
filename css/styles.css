@@ -2029,15 +2029,15 @@ section {
 }
 
 .nav-brand img {
-  height: 60px;
+  height: 85px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  filter: brightness(0.6) contrast(1.3);
+  filter: brightness(0.45) contrast(1.4);
 }
 
 .navbar.scrolled .nav-brand img {
-  height: 48px;
+  height: 60px;
 }
 
 .nav-brand .brand-text {
