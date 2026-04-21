@@ -2688,8 +2688,8 @@ section {
    SKIN MAPPING INTERACTIVE SECTION
    ======================================== */
 .skin-mapping {
-  padding: 6rem 0;
-  background: var(--white);
+  padding: 0 0 6rem;
+  background: var(--cream);
   position: relative;
   overflow: hidden;
 }
