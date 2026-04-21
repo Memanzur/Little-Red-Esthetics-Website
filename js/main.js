@@ -92,6 +92,9 @@ function initFloatingCTA() {
   const footer = document.querySelector('.footer');
   if (!footer) return;
 
+  const hero = document.querySelector('.hero');
+  const scrollThreshold = hero ? hero.offsetHeight : 600;
+
   const onScroll = () => {
     const footerTop = footer.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
@@ -102,6 +105,12 @@ function initFloatingCTA() {
     } else {
       cta.style.opacity = '1';
       cta.style.pointerEvents = 'auto';
+    }
+
+    if (window.scrollY > scrollThreshold) {
+      cta.classList.add('solid');
+    } else {
+      cta.classList.remove('solid');
     }
   };
 

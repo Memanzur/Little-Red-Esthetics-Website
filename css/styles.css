@@ -1977,10 +1977,10 @@ section {
   align-items: center;
   gap: 0.5rem;
   padding: 0.9rem 1.8rem;
-  background: rgba(123, 45, 59, 0.65);
+  background: rgba(123, 45, 59, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.6);
   border-radius: 50px;
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -1988,9 +1988,18 @@ section {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(123, 45, 59, 0.25);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+  transition: all 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.floating-cta.solid {
+  background: var(--burgundy);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(123, 45, 59, 0.35);
+  border-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .floating-cta:hover {
