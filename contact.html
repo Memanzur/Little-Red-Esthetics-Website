@@ -114,7 +114,7 @@
         <h3>Send a Message</h3>
         <p>Fill out the form below and I'll get back to you within 24 hours.</p>
 
-        <form class="contact-form" action="mailto:little.red.esthetics@gmail.com" method="POST" enctype="text/plain">
+        <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -158,9 +158,55 @@
             <textarea id="message" name="message" rows="5" placeholder="Tell me about your goals or any questions you have..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="border: none;">Send Message</button>
+          <button type="submit" class="btn btn-primary" style="border: none;" id="contactSubmitBtn">Send Message</button>
+          <p id="contactSuccess" style="display:none; color: #27ae60; margin-top: 1rem; font-weight: 500;">Message sent! I'll get back to you within 24 hours.</p>
+          <p id="contactError" style="display:none; color: #c0392b; margin-top: 1rem;">Something went wrong. Please call or email directly.</p>
         </form>
       </div>
+    </div>
+  </section>
+
+  <!-- Ambassador Application -->
+  <section class="ambassador-apply" id="ambassador" style="padding: 4rem 0; background: white;">
+    <div class="container" style="max-width: 600px;">
+      <div class="text-center" style="margin-bottom: 2rem;">
+        <p class="section-label fade-in">Join the Team</p>
+        <h2 class="fade-in">Ambassador Application</h2>
+        <p class="fade-in">Want to represent Little Red Esthetics? Tell us about yourself and why you'd be a great fit.</p>
+      </div>
+
+      <form class="contact-form" id="ambassadorForm" onsubmit="submitAmbassadorForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ambName">Full Name</label>
+            <input type="text" id="ambName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="ambEmail">Email</label>
+            <input type="email" id="ambEmail" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ambPhone">Phone</label>
+            <input type="tel" id="ambPhone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="ambInstagram">Instagram Handle</label>
+            <input type="text" id="ambInstagram" name="instagram" placeholder="@yourusername" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ambWhy">Why do you want to be an ambassador?</label>
+          <textarea id="ambWhy" name="why" rows="4" placeholder="Tell us about yourself, your aesthetic journey, and why you'd love to represent Little Red Esthetics..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="border: none;" id="ambSubmitBtn">Submit Application</button>
+        <p id="ambSuccess" style="display:none; color: #27ae60; margin-top: 1rem; font-weight: 500;">Application submitted! We'll review it and get back to you soon.</p>
+        <p id="ambError" style="display:none; color: #c0392b; margin-top: 1rem;">Something went wrong. Please try again or email us directly.</p>
+      </form>
     </div>
   </section>
 
@@ -224,7 +270,8 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Little Red Esthetics. All rights reserved.</p>
-        <p><a href="faq.html">FAQ</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+        <p><a href="faq.html">FAQ</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a></p>
+        <p style="margin-top: 0.5rem;"><a href="celeste-admin.html" style="color: #999; font-size: 0.7rem; text-decoration: none;">Celeste</a></p>
       </div>
     </div>
   </footer>
@@ -235,5 +282,81 @@
   </a>
 
   <script src="js/main.js"></script>
+  <script>
+    function submitContactForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('contactSubmitBtn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value
+      };
+
+      fetch('api/submit-form.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success) {
+          document.getElementById('contactSuccess').style.display = 'block';
+          document.getElementById('contactError').style.display = 'none';
+          document.getElementById('contactForm').reset();
+          btn.textContent = 'Sent!';
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(() => {
+        document.getElementById('contactError').style.display = 'block';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      });
+    }
+
+    function submitAmbassadorForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('ambSubmitBtn');
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+
+      const data = {
+        name: document.getElementById('ambName').value,
+        email: document.getElementById('ambEmail').value,
+        phone: document.getElementById('ambPhone').value,
+        instagram: document.getElementById('ambInstagram').value,
+        why: document.getElementById('ambWhy').value
+      };
+
+      fetch('api/submit-ambassador.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success) {
+          document.getElementById('ambSuccess').style.display = 'block';
+          document.getElementById('ambError').style.display = 'none';
+          document.getElementById('ambassadorForm').reset();
+          btn.textContent = 'Submitted!';
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(() => {
+        document.getElementById('ambError').style.display = 'block';
+        btn.textContent = 'Submit Application';
+        btn.disabled = false;
+      });
+    }
+  </script>
 </body>
 </html>

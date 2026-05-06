@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Little Red Esthetics</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #FBF7F4; color: #2d2d2d; min-height: 100vh; }
+    .admin-login { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+    .login-box { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 400px; width: 100%; text-align: center; }
+    .login-box h1 { font-family: 'Cormorant Garamond', serif; color: #7B2D3B; margin-bottom: 0.5rem; font-size: 1.8rem; }
+    .login-box p { color: #666; margin-bottom: 2rem; font-size: 0.9rem; }
+    .login-box input { width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; margin-bottom: 1rem; font-family: inherit; }
+    .login-box button { width: 100%; padding: 12px; background: #7B2D3B; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-family: inherit; font-weight: 500; }
+    .login-box button:hover { background: #5e2230; }
+    .login-error { color: #c0392b; font-size: 0.85rem; margin-bottom: 1rem; display: none; }
+
+    .admin-panel { display: none; }
+    .admin-header { background: #7B2D3B; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .admin-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+    .admin-header button { background: rgba(255,255,255,0.2); border: none; color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-family: inherit; }
+    .admin-header button:hover { background: rgba(255,255,255,0.3); }
+
+    .admin-tabs { display: flex; gap: 0; border-bottom: 2px solid #eee; padding: 0 2rem; background: white; }
+    .admin-tab { padding: 1rem 2rem; cursor: pointer; border-bottom: 3px solid transparent; font-weight: 500; color: #666; transition: all 0.2s; }
+    .admin-tab:hover { color: #7B2D3B; }
+    .admin-tab.active { color: #7B2D3B; border-bottom-color: #7B2D3B; }
+    .tab-badge { background: #7B2D3B; color: white; font-size: 0.7rem; padding: 2px 7px; border-radius: 10px; margin-left: 6px; }
+
+    .admin-content { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .card { background: white; border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #C9A96E; }
+    .card.unread { border-left-color: #7B2D3B; background: #fdf9f7; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+    .card-name { font-weight: 600; font-size: 1.1rem; }
+    .card-date { font-size: 0.8rem; color: #999; }
+    .card-detail { font-size: 0.9rem; color: #555; margin-bottom: 0.25rem; }
+    .card-message { margin-top: 0.75rem; padding: 0.75rem; background: #f8f5f2; border-radius: 6px; font-size: 0.9rem; color: #444; }
+    .card-actions { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .btn-sm { padding: 6px 14px; border: none; border-radius: 6px; font-size: 0.8rem; cursor: pointer; font-family: inherit; font-weight: 500; }
+    .btn-accept { background: #27ae60; color: white; }
+    .btn-accept:hover { background: #1e8449; }
+    .btn-reject { background: #c0392b; color: white; }
+    .btn-reject:hover { background: #96281b; }
+    .btn-read { background: #eee; color: #555; }
+    .btn-read:hover { background: #ddd; }
+    .btn-delete { background: #f8d7da; color: #721c24; }
+    .btn-delete:hover { background: #f1b0b7; }
+
+    .status-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+    .status-pending { background: #fff3cd; color: #856404; }
+    .status-accepted { background: #d4edda; color: #155724; }
+    .status-rejected { background: #f8d7da; color: #721c24; }
+
+    .empty-state { text-align: center; padding: 4rem 2rem; color: #999; }
+    .empty-state h3 { margin-bottom: 0.5rem; color: #666; }
+
+    @media (max-width: 768px) {
+      .admin-tabs { padding: 0 1rem; }
+      .admin-tab { padding: 0.75rem 1rem; font-size: 0.85rem; }
+      .admin-content { padding: 1rem; }
+      .card-header { flex-direction: column; gap: 0.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div class="admin-login" id="loginScreen">
+    <div class="login-box">
+      <h1>Little Red Esthetics</h1>
+      <p>Admin Dashboard</p>
+      <p class="login-error" id="loginError">Incorrect password. Try again.</p>
+      <input type="password" id="passwordInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
+      <button onclick="login()">Sign In</button>
+    </div>
+  </div>
+
+  <!-- Admin Panel -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-header">
+      <h1>Celeste's Dashboard</h1>
+      <button onclick="logout()">Log Out</button>
+    </div>
+
+    <div class="admin-tabs">
+      <div class="admin-tab active" onclick="switchTab('forms')">Forms <span class="tab-badge" id="formsBadge">0</span></div>
+      <div class="admin-tab" onclick="switchTab('ambassadors')">Ambassador Reviews <span class="tab-badge" id="ambBadge">0</span></div>
+    </div>
+
+    <div class="admin-content">
+      <!-- Forms Tab -->
+      <div class="tab-panel active" id="formsPanel">
+        <div id="formsList"></div>
+      </div>
+
+      <!-- Ambassadors Tab -->
+      <div class="tab-panel" id="ambassadorsPanel">
+        <div id="ambassadorsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let adminPassword = '';
+
+    function login() {
+      adminPassword = document.getElementById('passwordInput').value;
+      fetch('api/admin.php?action=forms', {
+        headers: { 'X-Admin-Password': adminPassword }
+      })
+      .then(r => {
+        if (!r.ok) throw new Error('Unauthorized');
+        return r.json();
+      })
+      .then(() => {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+        loadForms();
+        loadAmbassadors();
+      })
+      .catch(() => {
+        document.getElementById('loginError').style.display = 'block';
+      });
+    }
+
+    function logout() {
+      adminPassword = '';
+      document.getElementById('adminPanel').style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'flex';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('loginError').style.display = 'none';
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      if (tab === 'forms') {
+        document.querySelectorAll('.admin-tab')[0].classList.add('active');
+        document.getElementById('formsPanel').classList.add('active');
+      } else {
+        document.querySelectorAll('.admin-tab')[1].classList.add('active');
+        document.getElementById('ambassadorsPanel').classList.add('active');
+      }
+    }
+
+    function loadForms() {
+      fetch('api/admin.php?action=forms', {
+        headers: { 'X-Admin-Password': adminPassword }
+      })
+      .then(r => r.json())
+      .then(forms => {
+        const unread = forms.filter(f => !f.read).length;
+        document.getElementById('formsBadge').textContent = unread;
+
+        if (forms.length === 0) {
+          document.getElementById('formsList').innerHTML = '<div class="empty-state"><h3>No form submissions yet</h3><p>When someone fills out your contact form, it will show up here.</p></div>';
+          return;
+        }
+
+        document.getElementById('formsList').innerHTML = forms.map(f => `
+          <div class="card ${f.read ? '' : 'unread'}">
+            <div class="card-header">
+              <div class="card-name">${f.firstName} ${f.lastName}</div>
+              <div class="card-date">${new Date(f.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' })}</div>
+            </div>
+            <div class="card-detail">${f.email}${f.phone ? ' &middot; ' + f.phone : ''}</div>
+            ${f.service ? '<div class="card-detail">Service: ' + f.service + '</div>' : ''}
+            ${f.message ? '<div class="card-message">' + f.message + '</div>' : ''}
+            <div class="card-actions">
+              ${!f.read ? '<button class="btn-sm btn-read" onclick="markRead(\'' + f.id + '\')">Mark Read</button>' : ''}
+              <button class="btn-sm btn-delete" onclick="deleteForm('${f.id}')">Delete</button>
+            </div>
+          </div>
+        `).join('');
+      });
+    }
+
+    function loadAmbassadors() {
+      fetch('api/admin.php?action=ambassadors', {
+        headers: { 'X-Admin-Password': adminPassword }
+      })
+      .then(r => r.json())
+      .then(ambassadors => {
+        const pending = ambassadors.filter(a => a.status === 'pending').length;
+        document.getElementById('ambBadge').textContent = pending;
+
+        if (ambassadors.length === 0) {
+          document.getElementById('ambassadorsList').innerHTML = '<div class="empty-state"><h3>No ambassador applications yet</h3><p>When someone applies to be an ambassador, it will show up here for your review.</p></div>';
+          return;
+        }
+
+        document.getElementById('ambassadorsList').innerHTML = ambassadors.map(a => `
+          <div class="card">
+            <div class="card-header">
+              <div class="card-name">${a.name} <span class="status-badge status-${a.status}">${a.status}</span></div>
+              <div class="card-date">${new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+            </div>
+            <div class="card-detail">${a.email}${a.phone ? ' &middot; ' + a.phone : ''}</div>
+            <div class="card-detail">Instagram: @${a.instagram.replace('@', '')}</div>
+            ${a.why ? '<div class="card-message">' + a.why + '</div>' : ''}
+            <div class="card-actions">
+              ${a.status !== 'accepted' ? '<button class="btn-sm btn-accept" onclick="updateAmbassador(\'' + a.id + '\', \'accepted\')">Accept</button>' : ''}
+              ${a.status !== 'rejected' ? '<button class="btn-sm btn-reject" onclick="updateAmbassador(\'' + a.id + '\', \'rejected\')">Reject</button>' : ''}
+              ${a.status !== 'pending' ? '<button class="btn-sm btn-read" onclick="updateAmbassador(\'' + a.id + '\', \'pending\')">Reset to Pending</button>' : ''}
+            </div>
+          </div>
+        `).join('');
+      });
+    }
+
+    function markRead(id) {
+      fetch('api/admin.php?action=mark-read', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': adminPassword },
+        body: JSON.stringify({ id })
+      }).then(() => loadForms());
+    }
+
+    function deleteForm(id) {
+      if (!confirm('Delete this submission?')) return;
+      fetch('api/admin.php?action=delete-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': adminPassword },
+        body: JSON.stringify({ id })
+      }).then(() => loadForms());
+    }
+
+    function updateAmbassador(id, status) {
+      fetch('api/admin.php?action=update-ambassador', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': adminPassword },
+        body: JSON.stringify({ id, status })
+      }).then(() => loadAmbassadors());
+    }
+  </script>
+</body>
+</html>

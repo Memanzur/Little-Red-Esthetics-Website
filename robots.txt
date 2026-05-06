@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /celeste-admin.html
+Disallow: /api/
+Disallow: /data/
 
 Sitemap: https://www.littleredesthetics.com/sitemap.xml
