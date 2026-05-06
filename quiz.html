@@ -107,9 +107,9 @@
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html">Botox & Neurotoxins</a></li>
+            <li><a href="services.html">Neurotoxins</a></li>
             <li><a href="services.html">Dermal Fillers</a></li>
-            <li><a href="services.html">Lip Enhancement</a></li>
+            <li><a href="services.html">Microneedling & PRP</a></li>
             <li><a href="services.html">Free Consultation</a></li>
           </ul>
         </div>
@@ -147,54 +147,60 @@
       {
         question: "What's your primary skin type?",
         subtitle: "Think about how your skin typically feels by midday.",
+        multiSelect: false,
         options: [
-          { icon: "💧", text: "Dry - feels tight, sometimes flaky", value: "dry" },
-          { icon: "✨", text: "Oily - shiny by noon, enlarged pores", value: "oily" },
-          { icon: "🌗", text: "Combination - oily T-zone, dry cheeks", value: "combo" },
-          { icon: "🌸", text: "Sensitive - easily irritated, redness-prone", value: "sensitive" },
-          { icon: "☁️", text: "Normal - balanced and generally happy", value: "normal" }
+          { icon: "\u{1F4A7}", text: "Dry - feels tight, sometimes flaky", value: "dry" },
+          { icon: "\u2728", text: "Oily - shiny by noon, enlarged pores", value: "oily" },
+          { icon: "\u{1F317}", text: "Combination - oily T-zone, dry cheeks", value: "combo" },
+          { icon: "\u{1F338}", text: "Sensitive - easily irritated, redness-prone", value: "sensitive" },
+          { icon: "\u2601\uFE0F", text: "Normal - balanced and generally happy", value: "normal" }
         ]
       },
       {
-        question: "What's your #1 skin concern right now?",
-        subtitle: "Pick the one that bothers you most.",
+        question: "What are your top skin concerns?",
+        subtitle: "Select all that apply to you.",
+        multiSelect: true,
         options: [
-          { icon: "〰️", text: "Fine lines & wrinkles", value: "aging" },
-          { icon: "🔴", text: "Acne or breakouts", value: "acne" },
-          { icon: "🎨", text: "Uneven skin tone or dark spots", value: "tone" },
-          { icon: "😴", text: "Dullness & lack of glow", value: "dull" },
-          { icon: "📐", text: "Volume loss or facial structure", value: "volume" }
+          { icon: "\u3030\uFE0F", text: "Fine lines & wrinkles", value: "aging" },
+          { icon: "\u{1F534}", text: "Acne or breakouts", value: "acne" },
+          { icon: "\u{1F3A8}", text: "Uneven skin tone or dark spots", value: "tone" },
+          { icon: "\u{1F634}", text: "Dullness & lack of glow", value: "dull" },
+          { icon: "\u{1F4D0}", text: "Volume loss or facial structure", value: "volume" },
+          { icon: "\u{1F4A2}", text: "Scarring or texture issues", value: "scarring" }
         ]
       },
       {
         question: "What age range are you in?",
         subtitle: "This helps us tailor product and treatment recommendations.",
+        multiSelect: false,
         options: [
-          { icon: "🌱", text: "18-25", value: "18-25" },
-          { icon: "🌿", text: "26-35", value: "26-35" },
-          { icon: "🌳", text: "36-45", value: "36-45" },
-          { icon: "🍂", text: "46-55", value: "46-55" },
-          { icon: "🌺", text: "55+", value: "55+" }
+          { icon: "\u{1F331}", text: "18-25", value: "18-25" },
+          { icon: "\u{1F33F}", text: "26-35", value: "26-35" },
+          { icon: "\u{1F333}", text: "36-45", value: "36-45" },
+          { icon: "\u{1F342}", text: "46-55", value: "46-55" },
+          { icon: "\u{1F33A}", text: "55+", value: "55+" }
         ]
       },
       {
         question: "How would you describe your daily skincare routine?",
         subtitle: "Be honest, no judgment here!",
+        multiSelect: false,
         options: [
-          { icon: "🚿", text: "Minimal - cleanser and moisturizer, maybe", value: "minimal" },
-          { icon: "📋", text: "Basic - cleanser, moisturizer, sunscreen", value: "basic" },
-          { icon: "🧴", text: "Dedicated - multi-step with serums & SPF", value: "dedicated" },
-          { icon: "🔬", text: "Advanced - actives, treatments, the whole thing", value: "advanced" }
+          { icon: "\u{1F6BF}", text: "Minimal - cleanser and moisturizer, maybe", value: "minimal" },
+          { icon: "\u{1F4CB}", text: "Basic - cleanser, moisturizer, sunscreen", value: "basic" },
+          { icon: "\u{1F9F4}", text: "Dedicated - multi-step with serums & SPF", value: "dedicated" },
+          { icon: "\u{1F52C}", text: "Advanced - actives, treatments, the whole thing", value: "advanced" }
         ]
       },
       {
         question: "Have you had aesthetic treatments before?",
         subtitle: "This helps us gauge your comfort level.",
+        multiSelect: false,
         options: [
-          { icon: "🆕", text: "Never - this would be my first time", value: "never" },
-          { icon: "🤔", text: "Curious - I've been researching", value: "curious" },
-          { icon: "✅", text: "Yes - I've had Botox or fillers before", value: "experienced" },
-          { icon: "💫", text: "Regular - I'm a seasoned pro", value: "regular" }
+          { icon: "\u{1F195}", text: "Never - this would be my first time", value: "never" },
+          { icon: "\u{1F914}", text: "Curious - I've been researching", value: "curious" },
+          { icon: "\u2705", text: "Yes - I've had neurotoxins or fillers before", value: "experienced" },
+          { icon: "\u{1F4AB}", text: "Regular - I'm a seasoned pro", value: "regular" }
         ]
       }
     ];
@@ -213,13 +219,27 @@
       html += '<p>' + q.subtitle + '</p>';
       html += '</div>';
       html += '<div class="quiz-options">';
-      q.options.forEach((opt, i) => {
-        const selected = answers[index] === opt.value ? ' selected' : '';
-        html += '<button class="quiz-option' + selected + '" onclick="selectOption(' + index + ', \'' + opt.value + '\')">';
-        html += '<span class="quiz-option-icon">' + opt.icon + '</span>';
-        html += '<span>' + opt.text + '</span>';
-        html += '</button>';
-      });
+
+      if (q.multiSelect) {
+        const selected = Array.isArray(answers[index]) ? answers[index] : [];
+        q.options.forEach((opt, i) => {
+          const isSelected = selected.includes(opt.value) ? ' selected' : '';
+          html += '<button class="quiz-option' + isSelected + '" onclick="toggleMultiOption(' + index + ', \'' + opt.value + '\')">';
+          html += '<span class="quiz-option-icon">' + opt.icon + '</span>';
+          html += '<span>' + opt.text + '</span>';
+          if (isSelected) html += '<span class="quiz-check">\u2713</span>';
+          html += '</button>';
+        });
+      } else {
+        q.options.forEach((opt, i) => {
+          const selected = answers[index] === opt.value ? ' selected' : '';
+          html += '<button class="quiz-option' + selected + '" onclick="selectOption(' + index + ', \'' + opt.value + '\')">';
+          html += '<span class="quiz-option-icon">' + opt.icon + '</span>';
+          html += '<span>' + opt.text + '</span>';
+          html += '</button>';
+        });
+      }
+
       html += '</div>';
       html += '<div class="quiz-nav">';
       if (index > 0) {
@@ -227,10 +247,15 @@
       } else {
         html += '<div></div>';
       }
+
+      const hasAnswer = q.multiSelect
+        ? (Array.isArray(answers[index]) && answers[index].length > 0)
+        : !!answers[index];
+
       if (index < quizData.length - 1) {
-        html += '<button class="btn btn-primary" onclick="nextQuestion()" ' + (answers[index] ? '' : 'disabled style="opacity:0.5;cursor:not-allowed"') + '>Next</button>';
+        html += '<button class="btn btn-primary" onclick="nextQuestion()" ' + (hasAnswer ? '' : 'disabled style="opacity:0.5;cursor:not-allowed"') + '>Next</button>';
       } else {
-        html += '<button class="btn btn-primary" onclick="showResults()" ' + (answers[index] ? '' : 'disabled style="opacity:0.5;cursor:not-allowed"') + '>See My Results</button>';
+        html += '<button class="btn btn-primary" onclick="showResults()" ' + (hasAnswer ? '' : 'disabled style="opacity:0.5;cursor:not-allowed"') + '>See My Results</button>';
       }
       html += '</div>';
 
@@ -245,8 +270,23 @@
       }
     }
 
+    function toggleMultiOption(qIndex, value) {
+      if (!Array.isArray(answers[qIndex])) answers[qIndex] = [];
+      const idx = answers[qIndex].indexOf(value);
+      if (idx > -1) {
+        answers[qIndex].splice(idx, 1);
+      } else {
+        answers[qIndex].push(value);
+      }
+      renderQuestion(qIndex);
+    }
+
     function nextQuestion() {
-      if (!answers[currentQuestion]) return;
+      const q = quizData[currentQuestion];
+      const hasAnswer = q.multiSelect
+        ? (Array.isArray(answers[currentQuestion]) && answers[currentQuestion].length > 0)
+        : !!answers[currentQuestion];
+      if (!hasAnswer) return;
       currentQuestion++;
       renderQuestion(currentQuestion);
       window.scrollTo({ top: document.querySelector('.quiz-section').offsetTop - 100, behavior: 'smooth' });
@@ -261,31 +301,34 @@
       document.getElementById('progressFill').style.width = '100%';
       document.getElementById('progressText').textContent = 'Complete!';
 
-      const concern = answers[1];
+      const concerns = Array.isArray(answers[1]) ? answers[1] : [answers[1]];
       const age = answers[2];
       const skin = answers[0];
 
       let treatmentRec = '';
-      let productRecs = [];
-      let skinAdvice = '';
 
-      // Treatment recommendations based on concern
-      if (concern === 'aging') {
-        treatmentRec = '<div class="quiz-result-card"><h3>Recommended Treatment: Botox</h3><p>Based on your concerns with fine lines and wrinkles, neurotoxin treatments like Botox ($12/unit) or Jeuveau ($10/unit) would be ideal. These smooth existing lines and prevent new ones from forming. Results typically last 3-4 months.</p></div>';
-        if (age === '36-45' || age === '46-55' || age === '55+') {
-          treatmentRec += '<div class="quiz-result-card"><h3>Also Consider: Dermal Fillers</h3><p>As we age, we lose facial volume. Strategic filler placement in the cheeks (from $650) or under-eyes (from $600) can restore youthful fullness and complement your Botox results beautifully.</p></div>';
-        }
-      } else if (concern === 'volume') {
-        treatmentRec = '<div class="quiz-result-card"><h3>Recommended Treatment: Dermal Fillers</h3><p>Fillers are perfect for restoring volume and enhancing facial structure. Whether it\'s cheek contouring (from $650), jawline definition (from $650), or chin projection (from $600), we can create beautiful, natural-looking results.</p></div>';
-      } else if (concern === 'acne') {
-        treatmentRec = '<div class="quiz-result-card"><h3>Recommended: Skincare Consultation</h3><p>For active acne, a proper medical-grade skincare routine is the foundation. Book a free consultation and we\'ll create a custom GlyMed+ protocol to clear your skin. Once your skin is calm, we can discuss treatments to address any scarring.</p></div>';
-      } else if (concern === 'tone') {
-        treatmentRec = '<div class="quiz-result-card"><h3>Recommended: Brightening Protocol</h3><p>Uneven skin tone responds beautifully to medical-grade skincare with active brightening ingredients. A GlyMed+ regimen featuring vitamin C, retinoids, and professional peels can transform your complexion. Book a free consultation to get started.</p></div>';
-      } else if (concern === 'dull') {
-        treatmentRec = '<div class="quiz-result-card"><h3>Recommended Treatment: Lip Enhancement + Skincare</h3><p>Sometimes all you need is a little glow-up! A subtle lip enhancement (from $550) can brighten your whole face, and a proper skincare routine will give you that lit-from-within radiance. Start with a free consultation.</p></div>';
+      // Treatment recommendations based on concerns (multi-select)
+      if (concerns.includes('aging')) {
+        treatmentRec += '<div class="quiz-result-card"><h3>Recommended: Jeuveau</h3><p>Based on your concerns with fine lines and wrinkles, Jeuveau ($10/unit) is ideal. It smooths existing lines and prevents new ones from forming. Results typically last 3-4 months.</p></div>';
+      }
+      if (concerns.includes('volume')) {
+        treatmentRec += '<div class="quiz-result-card"><h3>Recommended: Dermal Fillers</h3><p>Fillers are perfect for restoring volume and enhancing facial structure. Lip enhancement ($700), cheek contouring ($1,400), jawline definition (from $650), or chin projection (from $600) for beautiful, natural-looking results.</p></div>';
+      }
+      if (concerns.includes('scarring') || concerns.includes('tone')) {
+        treatmentRec += '<div class="quiz-result-card"><h3>Recommended: Microneedling + PRP</h3><p>Microneedling with PRP stimulates your skin\'s natural healing to improve texture, scarring, and skin tone. Visible results build over a series of treatments for a radiant, even complexion.</p></div>';
+      }
+      if (concerns.includes('acne')) {
+        treatmentRec += '<div class="quiz-result-card"><h3>Recommended: Skincare Consultation</h3><p>For active acne, a proper medical-grade skincare routine is the foundation. Book a free consultation and we\'ll create a custom GlyMed+ protocol to clear your skin. Once your skin is calm, we can discuss treatments to address any scarring.</p></div>';
+      }
+      if (concerns.includes('dull')) {
+        treatmentRec += '<div class="quiz-result-card"><h3>Recommended: Glow-Up Combo</h3><p>A lip enhancement ($700) can brighten your whole face, and microneedling stimulates cell turnover for that lit-from-within radiance. Pair with a proper skincare routine for best results.</p></div>';
+      }
+      if (!treatmentRec) {
+        treatmentRec = '<div class="quiz-result-card"><h3>Recommended: Free Consultation</h3><p>Based on your answers, a personalized consultation with Celeste would be the best starting point to create your custom treatment plan.</p></div>';
       }
 
       // Product recommendations based on skin type
+      let productRecs = [];
       if (skin === 'dry') {
         productRecs = [
           { name: 'GlyMed+ CBD Skin Mist', desc: 'Hydrating facial mist with CBD to calm and moisturize throughout the day.' },

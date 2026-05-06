@@ -3153,3 +3153,130 @@ section {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* --- Referral Section --- */
+.referral-section {
+  padding: 5rem 0;
+  background: var(--white);
+}
+
+.referral-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.referral-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.referral-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.referral-amount {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  margin-bottom: 0.5rem;
+}
+
+.referral-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--charcoal);
+}
+
+.referral-card p {
+  font-size: 0.9rem;
+  color: var(--charcoal-light);
+  line-height: 1.6;
+}
+
+/* --- Ambassador Section --- */
+.ambassador-section {
+  padding: 5rem 0;
+  background: var(--cream);
+}
+
+.ambassador-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.ambassador-text h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ambassador-text p {
+  margin-bottom: 1.5rem;
+  color: var(--charcoal-light);
+}
+
+.ambassador-perks {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.ambassador-perks li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--charcoal);
+}
+
+.ambassador-perks li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--burgundy);
+  font-weight: 700;
+}
+
+.ambassador-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.ambassador-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .ambassador-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ambassador-image {
+    order: -1;
+    max-height: 300px;
+  }
+
+  .referral-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Quiz Multi-Select --- */
+.quiz-option .quiz-check {
+  margin-left: auto;
+  color: var(--burgundy);
+  font-weight: 700;
+  font-size: 1.1rem;
+}

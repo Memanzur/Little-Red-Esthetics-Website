@@ -149,17 +149,17 @@ function initSkinMap() {
     forehead: {
       title: 'Forehead',
       concerns: 'Fine lines, sun damage, uneven texture, horizontal wrinkles',
-      treatment: 'Botox + Chemical Peel'
+      treatment: 'Jeuveau + Chemical Peel'
     },
     eyes: {
       title: 'Eye Area',
       concerns: "Crow's feet, dark circles, puffiness, fine lines",
-      treatment: 'Botox + Eye Cream Rx'
+      treatment: 'Jeuveau + Eye Cream Rx'
     },
     'eyes-r': {
       title: 'Eye Area',
       concerns: "Crow's feet, dark circles, puffiness, fine lines",
-      treatment: 'Botox + Eye Cream Rx'
+      treatment: 'Jeuveau + Eye Cream Rx'
     },
     tzone: {
       title: 'T-Zone',
