@@ -1745,11 +1745,11 @@ section {
   }
 
   .nav-brand img {
-    height: 38px;
+    height: 50px;
   }
 
   .navbar.scrolled .nav-brand img {
-    height: 34px;
+    height: 44px;
   }
 
   .section-title {
@@ -2312,14 +2312,14 @@ section {
 }
 
 .nav-brand img {
-  height: 55px;
+  height: 75px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .navbar.scrolled .nav-brand img {
-  height: 44px;
+  height: 60px;
 }
 
 .nav-brand .brand-text {
